@@ -1,0 +1,123 @@
+h1
+{
+    text-align:center;
+}
+h3
+{
+    background-color: #3f5a80;
+    color:white;
+    font-size:1.5em;
+    margin-bottom:5px;
+    padding-left: 10px;
+}
+
+h4
+{
+    background-color: #2a3554;
+    color:white;
+    font-size:1.5em;
+    margin-bottom:5px;
+    padding-left: 10px;
+    text-align: center;
+
+}
+.news p
+{
+    background-color: #a4b8cb;
+    margin-top:0px;
+    padding-left: 10px;
+}
+.news
+{
+    width:95%;
+    margin:auto;
+
+}
+
+
+
+.bloc_page {
+
+    width: 90%;
+    margin: auto;
+    border: 1px solid grey;
+   background-color: #a4b8cb;
+
+
+}
+
+
+
+.comments
+{
+    width:60%;
+    margin:auto;
+    color:black;
+    background-color: #c5daed;
+    padding-left: 10px;
+}
+
+
+
+
+
+#header {
+
+    background-color: grey;
+    background-image: url("../img/alaska01.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 300px;
+    color: white;
+
+    height: 300px;
+    width: 100%;
+
+}
+
+#footer {
+
+    background-color: black;
+    color: white;
+
+    height: 30px;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+
+
+}
+
+/* Titre */
+
+.menuTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.menuTitle h1 {
+    padding: 5px 20px 5px 20px;
+    margin: 0;
+    color: white;
+    background-color: black;
+}
+
+.menuTitle p {
+    margin: 0;
+    padding: 0 10px 10px 10px;
+    background-color: grey;
+}
+.menu {
+    margin: 10;
+    padding: 0 20px 20px 30px;
+    background-color: darkviolet;
+    height: 20px;
+
+}
+
+.menu a
+{
+    text-decoration: underline;
+    color: white;
+}
