@@ -22,3 +22,28 @@
     }
     ?>
 </div>
+
+<h2>Ajouter un Commentaire</h2>
+
+<form action="../public/index.php?route=postComment&idArt=<?= htmlspecialchars($article->getId()); ?>" method="post" class="form">
+    <div class="formPseudo">
+        <label for="pseudo">Votre pseudo</label>
+        <input type="text" name="pseudo" id="pseudo" required value="<?php
+        if(isset($post['pseudo'])) {
+            echo filter_var($post['pseudo'], FILTER_SANITIZE_STRING);
+        }
+        ?>">
+    </div>
+    <div class="formContent">
+        <label for="content">Votre commentaire</label>
+        <br>
+        <textarea id="content" name="content"><?php
+            if (isset($post['content'])) {
+                echo filter_var($post['content'], FILTER_SANITIZE_STRING);
+            }
+            ?></textarea>
+    </div>
+    <div class="formSubmit">
+        <input type="submit" id="submit" class="buttonSubmit" name="submit" value="Envoyer">
+    </div>
+</form>

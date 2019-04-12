@@ -28,4 +28,12 @@ class CommentDAO extends DAO
         $result->closeCursor();
         return $comments;
     }
+
+    public function addCommentsFromForm($idArt, $comment) {
+        extract($comment);
+        if (isset($pseudo, $content) && !empty($pseudo) && !empty($content)) {
+            $sql ='INSERT INTO comment (pseudo, content, article_id, createdAt) VALUES (?, ?, ?, NOW())';
+            $this->createQuery($sql, [$pseudo, $content, $idArt]);
+        }
+    }
 }

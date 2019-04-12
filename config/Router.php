@@ -33,6 +33,12 @@ class Router
                 elseif ($route === 'addArticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }
+
+// Add a comment
+                else if (filter_input(INPUT_GET, 'route', FILTER_SANITIZE_STRING) === 'postComment') {
+                    $this->frontController->addCommentsFromForm(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
+                }
+
                 else{
                     $this->errorController->errorNotFound();
                 }

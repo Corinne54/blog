@@ -2,6 +2,8 @@
 
 namespace App\src\controller;
 
+use App\src\DAO\CommentDAO;
+
 class FrontController extends Controller
 {
     public function home()
@@ -16,9 +18,27 @@ class FrontController extends Controller
     {
         $article = $this->articleDAO->getArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+
+
         return $this->view->render('single', [
             'article' => $article,
-            'comments' => $comments
+            'comments' => $comments,
+            //         'comment' => $comment,
         ]);
     }
+
+
+    public function addCommentsFromForm($idArt, $post) {
+        if (isset($post['submit']) && !empty($post['pseudo']) && !empty($post['content'])) {
+            header('Location: ../public/index.php?route=article&articleId='.$idArt);
+            $commentDAO = new CommentDAO();
+            $commentDAO->addCommentsFromForm($idArt, $post);
+            $this->view->render('single', [
+                'post' => $post
+            ]);
+        }
+        header('Location: ../public/index.php?route=article&articleId='.$idArt);
+    }
 }
+
+
