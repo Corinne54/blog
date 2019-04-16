@@ -36,7 +36,26 @@ class Router
 
 // Add a comment
                 else if (filter_input(INPUT_GET, 'route', FILTER_SANITIZE_STRING) === 'postComment') {
-                    $this->frontController->addCommentsFromForm(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
+                    $this->frontController->addComment(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
+                }
+
+                else if($route=='adminHome'){
+
+                 $this->backController->adminHome();
+                }
+
+
+                else if($_GET['route'] === 'deleteArticle' ){
+                    $this->backController->deleteArticle($_GET['$articleId']);
+                }
+
+
+                else if($_GET['route'] === 'EditArticle'){
+                    $this->backController->EditArticle($_GET['idArt']);
+                }
+
+                else if($_GET['route'] === 'updateArticle'){
+                    $this->backController->updateArticle($_POST);
                 }
 
                 else{

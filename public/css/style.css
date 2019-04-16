@@ -4,57 +4,61 @@ h1
 }
 h3
 {
-    background-color: #3f5a80;
-    color:white;
+
+    color:black;
     font-size:1.5em;
-    margin-bottom:5px;
     padding-left: 10px;
 }
 
 h4
 {
     background-color: #2a3554;
-    color:white;
+    color:gray();
     font-size:1.5em;
     margin-bottom:5px;
     padding-left: 10px;
     text-align: center;
 
 }
-.news p
-{
-    background-color: #a4b8cb;
-    margin-top:0px;
-    padding-left: 10px;
-}
+
 .news
+
 {
-    width:95%;
-    margin:auto;
-
-}
 
 
+    background-color: lightgray;
+    color: black;
 
-.bloc_page {
-
-    width: 90%;
-    margin: auto;
-    border: 1px solid grey;
-   background-color: #a4b8cb;
+    margin: 2em;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
 
 
 }
+
+.news a
+{
+
+    color:midnightblue;
+}
+
+.news h2
+{
+    color: midnightblue;
+
+}
+
 
 
 
 .comments
 {
-    width:60%;
-    margin:auto;
-    color:black;
-    background-color: #c5daed;
-    padding-left: 10px;
+    padding: 5px;
+    margin: 10px auto 40px;
+    width: 70%;
+
+    background-color: whitesmoke;
+
 }
 
 
@@ -64,9 +68,9 @@ h4
 #header {
 
     background-color: grey;
-    background-image: url("../img/alaska01.jpg");
+    background-image: url("../img/alaska02.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 300px;
+    background-size: 100% 400px;
     color: white;
 
     height: 300px;

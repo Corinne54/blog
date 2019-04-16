@@ -28,11 +28,11 @@ class FrontController extends Controller
     }
 
 
-    public function addCommentsFromForm($idArt, $post) {
+    public function addComment($idArt, $post) {
         if (isset($post['submit']) && !empty($post['pseudo']) && !empty($post['content'])) {
             header('Location: ../public/index.php?route=article&articleId='.$idArt);
             $commentDAO = new CommentDAO();
-            $commentDAO->addCommentsFromForm($idArt, $post);
+            $commentDAO->addComment($idArt, $post);
             $this->view->render('single', [
                 'post' => $post
             ]);
