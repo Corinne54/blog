@@ -19,6 +19,20 @@ class BackController extends Controller
         ]);
     }
 
+    public function adminArticle($articleId)
+    {
+        $article = $this->articleDAO->getArticle($articleId);
+        $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+
+
+        return $this->view->render('adminSingle', [
+            'article' => $article,
+            'comments' => $comments,
+            //         'comment' => $comment,
+        ]);
+    }
+
+
 public function adminHome()
 {
 
@@ -31,8 +45,10 @@ public function adminHome()
     public function deleteArticle($articleId)
     {
         $this->articleDAO->deleteArticle($articleId);
+        $this->session->set('add_article', 'Larticle a bien été supprimé');
         header('Location: ../public/index.php?route=adminHome');
     }
+
 
 
     public function EditArticle($articleId)
@@ -41,16 +57,49 @@ public function adminHome()
         $this->view->render('updateArticle', ['article' => $article]);
     }
 
-    public function updateArticle($post)
-    {
 
-        if(isset($post['submit'])) {
-            $article = $this->articleDAO->updateArticle($post);
-            header('Location: ../public/index.php');
+    public function updateArticle(Parameter $post)
+    {
+        if($post->get('submit')) {
+            $this->articleDAO->updateArticle($post);
+            $this->session->set('add_article', 'article a bien été modifié');
+            header('Location: ../public/index.php?route=adminHome');
         }
-        $this->view->render('adminHome', ['article' => $article]);
 
     }
+
+
+
+    public function deleteComment($commentId)
+    {
+        $this->commentDAO->deleteComment($commentId);
+        $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
+       var_dump($commentId);
+       die();
+
+        //header('Location: ../public/index.php');
+    }
+
+
+    public function EditComment($commentId)
+    {
+        $comment = $this->commentDAO->getComment($commentId);
+        $this->view->render('updateComment', ['comment' => $comment]);
+    }
+
+
+    public function updateComment(Parameter $comment)
+    {
+        if($comment->get('submit')) {
+            $this->commentDAO->updateComment($comment);
+            $this->session->set('add_article', 'Le commentaire a bien été modifié');
+            header('Location: ../public/index.php?route=adminHome');
+        }
+
+        }
+
+
+
 
 
 

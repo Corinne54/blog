@@ -1,6 +1,5 @@
 <?php $this->title = "Nouvel article"; ?>
-<h1>Mon blog</h1>
-<p>En construction</p>
+
 <div>
     <form method="post" action="../public/index.php?route=addArticle">
         <label for="title">Titre</label><br>

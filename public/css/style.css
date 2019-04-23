@@ -21,6 +21,26 @@ h4
 
 }
 
+.admin
+
+{
+
+
+    background-color: midnightblue;
+    color: white;
+
+    margin: 2em;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
+font-size: 1.5em;
+    padding-left: 10px;
+
+}
+.admin a
+{
+    color: white;
+}
+
 .news
 
 {
@@ -32,7 +52,7 @@ h4
     margin: 2em;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
-
+    padding-left: 10px;
 
 }
 
@@ -58,6 +78,7 @@ h4
     width: 70%;
 
     background-color: whitesmoke;
+
 
 }
 

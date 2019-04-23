@@ -24,11 +24,17 @@ class Router
     public function run()
     {
         $route = $this->request->getGet()->get('route');
+      var_dump($_GET);
+      var_dump($this->request->getGet());
         try{
             if(isset($route))
             {
                 if($route === 'article'){
                     $this->frontController->article($this->request->getGet()->get('articleId'));
+                }
+
+                elseif($route === 'adminArticle'){
+                    $this->backController->adminArticle($this->request->getGet()->get('articleId'));
                 }
                 elseif ($route === 'addArticle'){
                     $this->backController->addArticle($this->request->getPost());
@@ -39,6 +45,24 @@ class Router
                     $this->frontController->addComment(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
                 }
 
+                else if ('route' === 'deleteComment') {
+                    $this->backController->deleteComment(
+                        $this->request->getGet()->get('commentId')
+                    );
+                }
+
+
+                else if($_GET['route'] === 'EditComment'){
+                    $this->backController->EditComment($this->request->getGet()->get('commentId'));
+                }
+
+                else if($_GET['route'] === 'updateComment'){
+                    $this->backController->updateArticle($this->request->getPost());
+                }
+
+
+
+
                 else if($route=='adminHome'){
 
                  $this->backController->adminHome();
@@ -46,16 +70,16 @@ class Router
 
 
                 else if($_GET['route'] === 'deleteArticle' ){
-                    $this->backController->deleteArticle($_GET['$articleId']);
+                    $this->backController->deleteArticle($this->request->getGet()->get('articleId'));
                 }
 
 
                 else if($_GET['route'] === 'EditArticle'){
-                    $this->backController->EditArticle($_GET['idArt']);
+                    $this->backController->EditArticle($this->request->getGet()->get('articleId'));
                 }
 
                 else if($_GET['route'] === 'updateArticle'){
-                    $this->backController->updateArticle($_POST);
+                    $this->backController->updateArticle($this->request->getPost());
                 }
 
                 else{

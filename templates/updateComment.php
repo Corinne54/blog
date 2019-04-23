@@ -1,0 +1,10 @@
+<form method="post" action="../public/index.php?route=updateComment">
+    <label for="title">Titre</label><br>
+    <input type="text" id="pseudo" name="pseudo" value="<?= $comment->getPseudo();?>"><br>
+    <label for="content">Contenu</label><br>
+    <textarea id="content" name="content" ><?= $comment->getContent();?>
+          </textarea><br>
+<input type="hidden" name="id" value="<?=htmlspecialchars($comment->getId());?> ">
+    <input type="submit" value="Mettre a jour" id="submit" name="submit">
+
+</form>

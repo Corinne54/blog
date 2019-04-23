@@ -49,20 +49,27 @@ class ArticleDAO extends DAO
 
     public function deleteArticle( $articleId )
     {
+        $sql = 'DELETE FROM comment WHERE article_id = ?';
+        $this->createQuery($sql,[$articleId]);
         $sql = 'DELETE FROM article WHERE id = ?';
         $this->createQuery($sql,[$articleId]);
     }
 
 
-    public function updateArticle($post)
+
+
+
+    public function updateArticle(Parameter $post)
 
     {
-        extract($post);
-        $title = $_POST['title'];
-        $content = $_POST['content'];
-        $id = $_POST['id'];
-        $sql = "UPDATE Article SET title='$title', content = '$content' WHERE id = '$id'";
-        $this->createQuery($sql);
+
+        $sql = "UPDATE article SET title=:title, content = :content WHERE id =:id";
+        $this->createQuery($sql,[
+            'title'=> $post->get('title'),
+            'content'=> $post->get('content'),
+            'id'=> $post->get('id')
+
+        ]);
 
     }
 
