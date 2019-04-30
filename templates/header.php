@@ -13,5 +13,5 @@
 <nav class="navbar navbar-dark bg-dark">
 
 
-    <a href="../public/index.php?route=adminHome">Administration</a>
+    <a href="../public/index.php?route=login">Connexion Administration</a>
 </nav>

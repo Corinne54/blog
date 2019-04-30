@@ -3,7 +3,7 @@
 namespace App\src\controller;
 
 use App\config\Parameter;
-use PDO;
+
 
 class BackController extends Controller
 {
@@ -45,7 +45,7 @@ public function adminHome()
     public function deleteArticle($articleId)
     {
         $this->articleDAO->deleteArticle($articleId);
-        $this->session->set('add_article', 'Larticle a bien été supprimé');
+        $this->session->set('delete_article', 'Larticle a bien été supprimé');
         header('Location: ../public/index.php?route=adminHome');
     }
 
@@ -74,10 +74,9 @@ public function adminHome()
     {
         $this->commentDAO->deleteComment($commentId);
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
-       var_dump($commentId);
-       die();
 
-        //header('Location: ../public/index.php');
+
+        header('Location: ../public/index.php');
     }
 
 
@@ -92,7 +91,7 @@ public function adminHome()
     {
         if($comment->get('submit')) {
             $this->commentDAO->updateComment($comment);
-            $this->session->set('add_article', 'Le commentaire a bien été modifié');
+            $this->session->set('update_comment', 'Le commentaire a bien été modifié');
             header('Location: ../public/index.php?route=adminHome');
         }
 

@@ -2,6 +2,7 @@
 
 namespace App\src\controller;
 
+use App\config\Parameter;
 use App\src\DAO\CommentDAO;
 
 class FrontController extends Controller
@@ -9,8 +10,9 @@ class FrontController extends Controller
     public function home()
     {
         $articles = $this->articleDAO->getArticles();
+        $articlesList = $this->articleDAO->getArticlesList();
         return $this->view->render('home', [
-            'articles' => $articles
+            'articles' => $articles, 'articlesList' => $articlesList
         ]);
     }
 
@@ -39,6 +41,29 @@ class FrontController extends Controller
         }
         header('Location: ../public/index.php?route=article&articleId='.$idArt);
     }
+
+
+
+    public function loginForm()
+    {
+        return $this->view->render('adminLogin');
+    }
+
+
+    public function register(Parameter $post)
+    {
+        if($post->get('submit')) {
+            $this->userDAO->register($post);
+            $this->session->set('register', 'Votre inscription a bien été effectuée');
+            header('Location: ../public/index.php');
+        }
+        return $this->view->render('register', [
+            'post' => $post
+        ]);
+    }
+
+
+
 }
 
 

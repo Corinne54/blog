@@ -20,7 +20,7 @@ class ArticleDAO extends DAO
 
     public function getArticles()
     {
-        $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
+        $sql = 'SELECT id, title, content , author, createdAt FROM article ORDER BY id DESC LIMIT 0,3';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -39,6 +39,21 @@ class ArticleDAO extends DAO
         $result->closeCursor();
         return $this->buildObject($article);
     }
+
+
+    // Récupère la liste des titres des articles
+    public function getArticlesList()
+    {
+        $sql = "SELECT id, title FROM article";
+        $articlesList = $this->createQuery($sql);
+
+        return $articlesList;
+    }
+
+
+
+
+
 
     public function addArticle(Parameter $post)
     {

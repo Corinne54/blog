@@ -11,6 +11,7 @@ class Router
     private $frontController;
     private $errorController;
     private $backController;
+    private $usersController;
     private $request;
 
     public function __construct()
@@ -19,6 +20,7 @@ class Router
         $this->frontController = new FrontController();
         $this->backController = new BackController();
         $this->errorController = new ErrorController();
+
     }
 
     public function run()
@@ -40,15 +42,13 @@ class Router
                     $this->backController->addArticle($this->request->getPost());
                 }
 
-// Add a comment
-                else if (filter_input(INPUT_GET, 'route', FILTER_SANITIZE_STRING) === 'postComment') {
+
+                else if ($route === 'postComment') {
                     $this->frontController->addComment(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
                 }
 
-                else if ('route' === 'deleteComment') {
-                    $this->backController->deleteComment(
-                        $this->request->getGet()->get('commentId')
-                    );
+                else if ($route === 'deleteComment') {
+                    $this->backController->deleteComment($this->request->getGet()->get('commentId'));
                 }
 
 
@@ -57,7 +57,7 @@ class Router
                 }
 
                 else if($_GET['route'] === 'updateComment'){
-                    $this->backController->updateArticle($this->request->getPost());
+                    $this->backController->updateComment($this->request->getPost());
                 }
 
 
@@ -67,6 +67,17 @@ class Router
 
                  $this->backController->adminHome();
                 }
+
+                else if ($route=='register') {
+
+               $this->frontController->register();
+                }
+
+
+
+
+
+
 
 
                 else if($_GET['route'] === 'deleteArticle' ){

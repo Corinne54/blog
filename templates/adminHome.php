@@ -1,6 +1,6 @@
 
 
-<?= $this->session->show('add_article'); ?>
+
 <h2 align="center"> Bienvenue sur votre espace d'administration</h2>
 
 <div class="admin">

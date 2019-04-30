@@ -41,6 +41,21 @@ font-size: 1.5em;
     color: white;
 }
 
+
+.main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+    min-height: 470px;
+    justify-content: center;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    width: 70%;
+}
+
 .news
 
 {
@@ -145,4 +160,17 @@ font-size: 1.5em;
 {
     text-decoration: underline;
     color: white;
+}
+
+
+.menuAside {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    padding: 20px;
+    border: 3px solid black;
+    background-color: lightgray;
+    border-radius: 10px;
+    color: blue;
+    width: 30%;
 }
