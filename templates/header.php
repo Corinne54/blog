@@ -14,4 +14,5 @@
 
 
     <a href="../public/index.php?route=login">Connexion Administration</a>
+    <a href="../public/index.php?route=register">Inscription Administration</a>
 </nav>

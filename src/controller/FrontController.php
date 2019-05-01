@@ -5,6 +5,7 @@ namespace App\src\controller;
 use App\config\Parameter;
 use App\src\DAO\CommentDAO;
 
+
 class FrontController extends Controller
 {
     public function home()
@@ -44,10 +45,7 @@ class FrontController extends Controller
 
 
 
-    public function loginForm()
-    {
-        return $this->view->render('adminLogin');
-    }
+
 
 
     public function register(Parameter $post)
@@ -60,10 +58,29 @@ class FrontController extends Controller
         return $this->view->render('register', [
             'post' => $post
         ]);
+
     }
 
 
 
-}
+    // Connection on the website
+
+
+    public function logIn(Parameter $post)
+    {
+        if($post->get('submit')) {
+            $this->userDAO->logIn($post);
+            $this->session->set('bienvenue', 'Vous êtes bien conntecté');
+            header('Location: ../public/index.php');
+        }
+         return $this->view->render('adminLogin', [
+            'post' => $post
+        ]);
+
+    }
+
+
+
+    }
 
 

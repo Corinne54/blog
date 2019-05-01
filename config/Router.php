@@ -11,7 +11,7 @@ class Router
     private $frontController;
     private $errorController;
     private $backController;
-    private $usersController;
+
     private $request;
 
     public function __construct()
@@ -68,13 +68,15 @@ class Router
                  $this->backController->adminHome();
                 }
 
-                else if ($route=='register') {
+                else if ($route==='register') {
 
-               $this->frontController->register();
+               $this->frontController->register($this->request->getPost());
                 }
 
 
-
+                elseif($route == 'logIn'){
+                    $this->frontController->logIn($this->request->getPost());
+                }
 
 
 
