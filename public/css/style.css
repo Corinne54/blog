@@ -5,7 +5,7 @@ h1
 h3
 {
 
-    color:black;
+    color:#016b78;
     font-size:1.5em;
     padding-left: 10px;
 }
@@ -48,6 +48,7 @@ font-size: 1.5em;
     margin-top: 90px;
     min-height: 470px;
     justify-content: center;
+    background-color: #f5e8d7;
 }
 .content {
     display: flex;
@@ -61,7 +62,7 @@ font-size: 1.5em;
 {
 
 
-    background-color: lightgray;
+    background-color: #dbfaf7;
     color: black;
 
     margin: 2em;
@@ -74,12 +75,12 @@ font-size: 1.5em;
 .news a
 {
 
-    color:midnightblue;
+    color: #ff6f25;
 }
 
 .news h2
 {
-    color: midnightblue;
+    color: #016b78;
 
 }
 
@@ -103,23 +104,23 @@ font-size: 1.5em;
 
 #header {
 
-    background-color: grey;
+    background-color: #016b78;
     background-image: url("../img/alaska02.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 400px;
+    background-size: 100% 300px;
     color: white;
 
-    height: 300px;
+    height: 350px;
     width: 100%;
 
 }
 
 #footer {
 
-    background-color: black;
+    background-color: #016b78;
     color: white;
 
-    height: 30px;
+    height: 60px;
     width: 100%;
     padding-top: 10px;
     text-align: center;
@@ -156,10 +157,10 @@ font-size: 1.5em;
 
 }
 
-.menu a
+.menuAside a
 {
     text-decoration: underline;
-    color: white;
+    color: #2a3554;
 }
 
 
@@ -169,8 +170,36 @@ font-size: 1.5em;
     margin: 40px;
     padding: 20px;
     border: 3px solid black;
-    background-color: lightgray;
+    background-color: #d2f7ff;
     border-radius: 10px;
-    color: blue;
+    color: #ff6f25;
+    width: 30%;
+}
+
+button {
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgb(255, 111, 37);
+    color: rgb(42, 53, 84);
+    border: 0;
+    cursor: pointer;
+}
+
+
+
+
+button:hover {
+    color: white;
+}
+
+form {
+   text-align: center;
+    width: 320px;
+padding: 5px;
+    border: 1px solid #ff6f25;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    color: #2a3554;
     width: 30%;
 }

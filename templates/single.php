@@ -13,7 +13,7 @@
     foreach ($comments as $comment)
     {
         ?>
-        <h3><?= htmlspecialchars($comment->getPseudo());?></h3>
+        <h5><?= htmlspecialchars($comment->getPseudo());?></h5>
         <p><?= htmlspecialchars($comment->getContent());?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
         <?php

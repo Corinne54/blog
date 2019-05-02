@@ -28,6 +28,8 @@ class Router
         $route = $this->request->getGet()->get('route');
       var_dump($_GET);
       var_dump($this->request->getGet());
+      var_dump($_POST);
+        var_dump($_SESSION);
         try{
             if(isset($route))
             {
@@ -78,7 +80,9 @@ class Router
                     $this->frontController->logIn($this->request->getPost());
                 }
 
-
+                elseif($route == 'logout'){
+                    $this->backController->logout();
+                }
 
 
 

@@ -13,6 +13,8 @@ require '../templates/header.php';
 <div id="content">
     <?= $content ?>
 </div>
-
+<?php
+require '../templates/footer.php';
+?>
 </body>
 </html>

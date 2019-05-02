@@ -1,5 +1,14 @@
 
+<?= $this->session->show('bienvenue'); ?>
 
+<?php
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+{
+    echo 'Bonjour ' . $_SESSION['pseudo'];
+
+}
+
+ ?>
 
 <h2 align="center"> Bienvenue sur votre espace d'administration</h2>
 

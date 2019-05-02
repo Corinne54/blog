@@ -10,9 +10,9 @@
 </header>
 
 <?= $this->session->show('add_article'); ?>
-<nav class="navbar navbar-dark bg-dark">
 
 
-    <a href="../public/index.php?route=login">Connexion Administration</a>
+
+    <a href="../public/index.php?route=logIn">Connexion Administration</a>
     <a href="../public/index.php?route=register">Inscription Administration</a>
-</nav>
+    <a href="../public/index.php?route=logout">Se déconnecter</a>

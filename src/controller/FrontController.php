@@ -63,22 +63,22 @@ class FrontController extends Controller
 
 
 
-    // Connection on the website
 
 
     public function logIn(Parameter $post)
     {
         if($post->get('submit')) {
             $this->userDAO->logIn($post);
-            $this->session->set('bienvenue', 'Vous êtes bien conntecté');
-            header('Location: ../public/index.php');
+            $this->session->set('bienvenue', 'Vous êtes bien connecté');
+            header('Location: ../public/index.php?route=adminHome');
         }
+
          return $this->view->render('adminLogin', [
             'post' => $post
+
         ]);
 
     }
-
 
 
     }

@@ -98,7 +98,11 @@ public function adminHome()
         }
 
 
-
+    public function logout()
+    {
+        $this->userDAO->logout();
+        header('Location: ../public/index.php');
+    }
 
 
 
