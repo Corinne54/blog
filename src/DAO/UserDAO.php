@@ -28,30 +28,57 @@ class UserDAO extends DAO
         $fetch = $result->fetch();
 
 
-        $checkPassword = password_verify($_POST['password'], $fetch['password']);
+        $checkPassword = password_verify($post->get('password'), $fetch['password']);
 
 
-        if (!$result) {
-            echo 'Mauvais identifiant ou mot de passe !';
-        } else {
+
             if ($checkPassword) {
-                session_start();
-                $_SESSION['id'] = $result['id'];
-                $_SESSION['pseudo'] = $post->get('pseudo');
+
+
 
                 // Affiche la vue accueil administration
-                $this->adminHome();
+                 header('Location: ../public/index.php?route=adminHome');
 
             } // Sinon affiche un message d'erreur
             else {
-                echo "Votre identifiant ou votre mot de passe est incorrect";
+
                 header('Location: ../public/index.php');
+}
+            }
+
+
+
+  /*  public function login(Parameter $post){
+
+        $sql = 'SELECT id, password,  FROM users WHERE pseudo =:pseudo';
+        $result = $this->createQuery($sql, [$post->get('pseudo')]);
+        $row = $result->fetch();
+
+        // Verifies if the login is in the database
+        if($row){
+            $checkPassword = password_verify($post->get('password'), $row['password']);
+            // And if the password typed is the right one
+            if($checkPassword == true){
+
+                //Charging the credentials of the session
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['pseudo'] = $post->get('pseudo');
+
+
+                // Regarding the status of the member, the redirection is different
+
+                    header('Location: Location: ../public/index.php');
+
+            } else {
+                echo 'Mauvais identifiant ou mot de passe';
             }
         }
-    }
+
+    }*/
 
 
-        public function logout()
+
+    public function logout()
     {
         $_SESSION = array();
         session_destroy();

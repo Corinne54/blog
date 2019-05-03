@@ -70,7 +70,7 @@ class FrontController extends Controller
         if($post->get('submit')) {
             $this->userDAO->logIn($post);
             $this->session->set('bienvenue', 'Vous êtes bien connecté');
-            header('Location: ../public/index.php?route=adminHome');
+           // header('Location: ../public/index.php?route=adminHome');
         }
 
          return $this->view->render('adminLogin', [
