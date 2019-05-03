@@ -11,7 +11,7 @@ class UserDAO extends DAO
     {
         $pass_hache = password_hash($post->get('password'), PASSWORD_DEFAULT);
 
-        $sql = 'INSERT INTO users (pseudo, mail, password) VALUES (?, ?, ?)';
+        $sql = 'INSERT INTO user (pseudo, mail, password) VALUES (?, ?, ?)';
 
         $this->createQuery($sql, [$post->get('pseudo'), $post->get('mail'), $pass_hache]);
 
@@ -20,7 +20,7 @@ class UserDAO extends DAO
     public function logIn(Parameter $post)
     {
 
-        $sql = 'SELECT id, password FROM users WHERE pseudo =:pseudo';
+        $sql = 'SELECT id, password FROM user WHERE pseudo =:pseudo';
         $result = $this->createQuery($sql, ['pseudo' => $post->get('pseudo')]);
 
 
@@ -46,35 +46,6 @@ class UserDAO extends DAO
 }
             }
 
-
-
-  /*  public function login(Parameter $post){
-
-        $sql = 'SELECT id, password,  FROM users WHERE pseudo =:pseudo';
-        $result = $this->createQuery($sql, [$post->get('pseudo')]);
-        $row = $result->fetch();
-
-        // Verifies if the login is in the database
-        if($row){
-            $checkPassword = password_verify($post->get('password'), $row['password']);
-            // And if the password typed is the right one
-            if($checkPassword == true){
-
-                //Charging the credentials of the session
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['pseudo'] = $post->get('pseudo');
-
-
-                // Regarding the status of the member, the redirection is different
-
-                    header('Location: Location: ../public/index.php');
-
-            } else {
-                echo 'Mauvais identifiant ou mot de passe';
-            }
-        }
-
-    }*/
 
 
 
