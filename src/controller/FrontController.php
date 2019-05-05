@@ -31,26 +31,23 @@ class FrontController extends Controller
     }
 
 
-    public function addComment($idArt, $post) {
+    public function addComment($idArt, $post)
+    {
         if (isset($post['submit']) && !empty($post['pseudo']) && !empty($post['content'])) {
-            header('Location: ../public/index.php?route=article&articleId='.$idArt);
+            header('Location: ../public/index.php?route=article&articleId=' . $idArt);
             $commentDAO = new CommentDAO();
             $commentDAO->addComment($idArt, $post);
             $this->view->render('single', [
                 'post' => $post
             ]);
         }
-        header('Location: ../public/index.php?route=article&articleId='.$idArt);
+        header('Location: ../public/index.php?route=article&articleId=' . $idArt);
     }
-
-
-
-
 
 
     public function register(Parameter $post)
     {
-        if($post->get('submit')) {
+        if ($post->get('submit')) {
             $this->userDAO->register($post);
             $this->session->set('register', 'Votre inscription a bien été effectuée');
             header('Location: ../public/index.php');
@@ -62,24 +59,29 @@ class FrontController extends Controller
     }
 
 
-
-
-
     public function logIn(Parameter $post)
     {
-        if($post->get('submit')) {
+        if ($post->get('submit')) {
             $this->userDAO->logIn($post);
+            $this->session->get($post);
             $this->session->set('bienvenue', 'Vous êtes bien connecté');
-           // header('Location: ../public/index.php?route=adminHome');
+
         }
 
-         return $this->view->render('adminLogin', [
+
+        else {
+            $this->session->set('erreur', 'Erreur de pseudo ou mot de passe');
+        }
+
+
+
+        return $this->view->render('adminLogin', [
             'post' => $post
 
         ]);
 
-    }
 
+}
 
     }
 

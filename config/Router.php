@@ -30,6 +30,7 @@ class Router
       var_dump($this->request->getGet());
       var_dump($_POST);
         var_dump($_SESSION);
+
         try{
             if(isset($route))
             {
@@ -65,9 +66,13 @@ class Router
 
 
 
-                else if($route=='adminHome'){
+                else if($route=='adminHome') {
+                    if (isset($_SESSION['id'])) {
 
-                 $this->backController->adminHome();
+                        $this->backController->adminHome();
+                    } else {
+                        $this->frontController->home();
+                    }
                 }
 
                 else if ($route==='register') {

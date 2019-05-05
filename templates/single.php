@@ -5,10 +5,9 @@
     <p><?= htmlspecialchars($article->getAuthor());?></p>
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
 </div>
-<br>
-<a href="../public/index.php">Retour à l'accueil</a>
+
 <div id="comments" class="comments" >
-    <h3>Commentaires</h3>
+    <h2> <i class="fa fa-comments"></i> Commentaires</h2>
     <?php
     foreach ($comments as $comment)
     {
@@ -19,12 +18,13 @@
         <?php
     }
     ?>
-</div>
-<div class="comments">
-<h2>Ajouter un Commentaire</h2>
+
+<div >
+
 
 <form action="../public/index.php?route=postComment&idArt=<?= htmlspecialchars($article->getId()); ?>" method="post" class="form">
     <div>
+        <h3>Ajouter un Commentaire</h3>
         <label for="pseudo">Votre pseudo</label>
         <input type="text" name="pseudo" id="pseudo" required value="<?php
         if(isset($post['pseudo'])) {
@@ -43,6 +43,8 @@
     </div>
     <div >
         <input type="submit" id="submit" class="buttonSubmit" name="submit" value="Envoyer">
-    </div>
+    </div></div>
 </form>
+    <br>
+    <a href="../public/index.php">Retour à l'accueil</a>
 </div>

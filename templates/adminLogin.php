@@ -1,3 +1,5 @@
+<?= $this->session->show('erreur'); ?>
+
 <div align="center" >
     <form method="post" action="../public/index.php?route=logIn">
     <div align="center" >

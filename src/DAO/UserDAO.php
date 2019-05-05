@@ -34,15 +34,16 @@ class UserDAO extends DAO
 
             if ($checkPassword) {
 
-
+                $_SESSION['id'] = $fetch['id'];
+                $_SESSION['pseudo'] = ['pseudo' => $post->get('pseudo')];
 
                 // Affiche la vue accueil administration
                  header('Location: ../public/index.php?route=adminHome');
 
-            } // Sinon affiche un message d'erreur
+            }
             else {
 
-                header('Location: ../public/index.php');
+                header('Location: ../public/index.php?route=logIn');
 }
             }
 
@@ -55,7 +56,7 @@ class UserDAO extends DAO
         session_destroy();
 
         // Suppression des cookies de connexion automatique
-        setcookie('login', '');
+        setcookie('pseudo', '');
         setcookie('pass_hache', '');
     }
 
