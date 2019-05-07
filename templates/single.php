@@ -15,6 +15,11 @@
         <h5><?= htmlspecialchars($comment->getPseudo());?></h5>
         <p><?= htmlspecialchars($comment->getContent());?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
+
+
+       <a class="buttonReport" href="../public/index.php?route=reportComment&articleId=<?= ($article->getId());?>&commentId=<?= ($comment->getId());?>"> Signaler</a>
+
+
         <?php
     }
     ?>

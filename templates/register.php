@@ -1,7 +1,7 @@
 <div align="center" >
 <form method="post" action="../public/index.php?route=register">
     <div >
-        <h3> Pour vous inscrire, merci de choisir votre pseudo et votre mot de passe et de renseigner votre e-mail :</h3>
+        <h3> Pour inscrire un nouvel administrateur, merci de choisir un pseudo et un mot de passe et de renseigner un e-mail :</h3>
         <div >
             <label for="pseudo">pseudo(*)</label>
             <br>

@@ -31,6 +31,19 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
+    public function getArticlesAdmin()
+    {
+        $sql = 'SELECT id, title, content , author, createdAt FROM article ORDER BY id';
+        $result = $this->createQuery($sql);
+        $articles = [];
+        foreach ($result as $row){
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $articles;
+    }
+
     public function getArticle($articleId)
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';

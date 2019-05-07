@@ -44,6 +44,11 @@ class FrontController extends Controller
         header('Location: ../public/index.php?route=article&articleId=' . $idArt);
     }
 
+    public function reportComment($commentId, $articleId) {
+        $commentDAO = new CommentDAO();
+        $commentDAO->reportComment($commentId);
+        header('Location: ../public/index.php?route=article&articleId='.$articleId);
+    }
 
     public function register(Parameter $post)
     {

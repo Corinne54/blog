@@ -24,6 +24,8 @@ class Comment
      */
     private $createdAt;
 
+   private $is_reported;
+
     /**
      * @return int
      */
@@ -87,4 +89,16 @@ class Comment
     {
         $this->createdAt = $createdAt;
     }
+
+
+    public function getIsReported() {
+        return $this->is_reported;
+    }
+
+    public function setIsReported($is_reported) {
+        $this->is_reported = $is_reported;
+    }
+
+
+
 }

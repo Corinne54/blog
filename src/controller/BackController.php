@@ -36,16 +36,20 @@ class BackController extends Controller
 public function adminHome()
 {
 
-    $articles = $this->articleDAO->getArticles();
+    $articles = $this->articleDAO->getArticlesAdmin();
+    $reportComments = $this->commentDAO->getReport();
+
     return $this->view->render('adminHome', [
-        'articles' => $articles
+        'articles' => $articles, 'comments'=>$reportComments,
     ]);
+
+
 }
 
     public function deleteArticle($articleId)
     {
         $this->articleDAO->deleteArticle($articleId);
-        $this->session->set('delete_article', 'Larticle a bien été supprimé');
+        $this->session->set('delete_article', "L'article a bien été supprimé");
         header('Location: ../public/index.php?route=adminHome');
     }
 
@@ -62,7 +66,7 @@ public function adminHome()
     {
         if($post->get('submit')) {
             $this->articleDAO->updateArticle($post);
-            $this->session->set('add_article', 'article a bien été modifié');
+            $this->session->set('update_article', "l'article a bien été modifié");
             header('Location: ../public/index.php?route=adminHome');
         }
 
@@ -76,7 +80,7 @@ public function adminHome()
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
 
 
-        header('Location: ../public/index.php');
+        header('Location: ../public/index.php?route=adminHome');
     }
 
 

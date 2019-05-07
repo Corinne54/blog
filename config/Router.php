@@ -48,6 +48,7 @@ class Router
 
                 else if ($route === 'postComment') {
                     $this->frontController->addComment(filter_input(INPUT_GET, 'idArt', FILTER_SANITIZE_NUMBER_INT), filter_input_array(INPUT_POST));
+
                 }
 
                 else if ($route === 'deleteComment') {
@@ -63,7 +64,9 @@ class Router
                     $this->backController->updateComment($this->request->getPost());
                 }
 
-
+                else if ($_GET['route']=== 'reportComment') {
+                    $this->frontController->reportComment(filter_input(INPUT_GET, 'commentId', FILTER_SANITIZE_NUMBER_INT), filter_input(INPUT_GET, 'articleId'));
+                }
 
 
                 else if($route=='adminHome') {

@@ -47,6 +47,19 @@ class CommentDAO extends DAO
         return $comments;
     }
 
+
+    public function getReport()
+    {
+        $sql = "SELECT id, article_id, pseudo, content, createdAt AS  is_reported FROM comment WHERE is_reported = 1";
+
+        $reportComments = $this->createQuery($sql);
+
+        return $reportComments;
+    }
+
+
+
+
    public function addComment($idArt, $comment) {
        extract($comment);
        if (isset($pseudo, $content) && !empty($pseudo) && !empty($content)) {
@@ -56,7 +69,11 @@ class CommentDAO extends DAO
     }
 
 
+    public function reportComment($commentId) {
+        $sql = 'UPDATE comment SET is_reported = 1 WHERE id = ?';
+        $this->createQuery($sql, [$commentId]);
 
+    }
 
 
     public function deleteComment($commentId)
