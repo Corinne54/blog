@@ -35,7 +35,7 @@ class UserDAO extends DAO
             if ($checkPassword) {
 
                 $_SESSION['id'] = $fetch['id'];
-                $_SESSION['pseudo'] = ['pseudo' => $post->get('pseudo')];
+                $_SESSION['pseudo'] = $post->get('pseudo');
 
                 // Affiche la vue accueil administration
                  header('Location: ../public/index.php?route=adminHome');

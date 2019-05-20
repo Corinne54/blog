@@ -91,6 +91,13 @@ public function adminHome()
     }
 
 
+    public function cancelReportComment($commentId) {
+
+        $this->commentDAO->cancelReportComment($commentId);
+        header('Location: ../public/index.php?route=adminHome');
+    }
+
+
     public function updateComment(Parameter $comment)
     {
         if($comment->get('submit')) {

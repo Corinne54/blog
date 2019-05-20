@@ -17,6 +17,20 @@ class FrontController extends Controller
         ]);
     }
 
+    public function quisuisje()
+    {
+        return $this->view->render('quisuisje');
+    }
+
+    public function leschapitres()
+    {
+        $articles = $this->articleDAO->getArticles();
+        $articlesList = $this->articleDAO->getArticlesList();
+        return $this->view->render('leschapitres', ['articles' => $articles,'articlesList'=> $articlesList]
+
+        );
+    }
+
     public function article($articleId)
     {
         $article = $this->articleDAO->getArticle($articleId);
@@ -26,7 +40,7 @@ class FrontController extends Controller
         return $this->view->render('single', [
             'article' => $article,
             'comments' => $comments,
-            //         'comment' => $comment,
+
         ]);
     }
 
@@ -35,8 +49,7 @@ class FrontController extends Controller
     {
         if (isset($post['submit']) && !empty($post['pseudo']) && !empty($post['content'])) {
             header('Location: ../public/index.php?route=article&articleId=' . $idArt);
-            $commentDAO = new CommentDAO();
-            $commentDAO->addComment($idArt, $post);
+            $this->commentDAO->addComment($idArt, $post);
             $this->view->render('single', [
                 'post' => $post
             ]);
@@ -45,8 +58,8 @@ class FrontController extends Controller
     }
 
     public function reportComment($commentId, $articleId) {
-        $commentDAO = new CommentDAO();
-        $commentDAO->reportComment($commentId);
+
+        $this->commentDAO->reportComment($commentId);
         header('Location: ../public/index.php?route=article&articleId='.$articleId);
     }
 

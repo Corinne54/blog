@@ -14,6 +14,7 @@ class CommentDAO extends DAO
         $comment->setPseudo($row['pseudo']);
         $comment->setContent($row['content']);
         $comment->setCreatedAt($row['createdAt']);
+
         return $comment;
     }
 
@@ -71,6 +72,13 @@ class CommentDAO extends DAO
 
     public function reportComment($commentId) {
         $sql = 'UPDATE comment SET is_reported = 1 WHERE id = ?';
+        $this->createQuery($sql, [$commentId]);
+
+    }
+
+
+    public function cancelReportComment($commentId) {
+        $sql = 'UPDATE comment SET is_reported = 0 WHERE id = ?';
         $this->createQuery($sql, [$commentId]);
 
     }

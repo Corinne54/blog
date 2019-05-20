@@ -1,6 +1,12 @@
+<section class="blog-single">
+    <div class="container">
+        <div class="main-contant">
 
-<div class="news">
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
+
+            <figure class="figure">
+            <img src="../public/img/<?=htmlspecialchars($article->getPicture());?>">
+            </figure>
     <p><?= htmlspecialchars($article->getContent());?></p>
     <p><?= htmlspecialchars($article->getAuthor());?></p>
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
@@ -24,3 +30,5 @@
     ?>
 
 </div>
+    </div>
+</section>

@@ -32,6 +32,9 @@ class Article
     /**
      * @return int
      */
+
+    private $picture;
+
     public function getId()
     {
         return $this->id;
@@ -45,6 +48,15 @@ class Article
         $this->id = $id;
     }
 
+
+
+    public function setPicture($picture)
+    {
+        $this-> picture=$picture;
+    }
+
+
+    
     /**
      * @return string
      */
@@ -69,6 +81,11 @@ class Article
         return $this->content;
     }
 
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
     /**
      * @param string $content
      */

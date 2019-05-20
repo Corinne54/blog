@@ -15,12 +15,13 @@ class ArticleDAO extends DAO
         $article->setContent($row['content']);
         $article->setAuthor($row['author']);
         $article->setCreatedAt($row['createdAt']);
+        $article->setPicture($row['picture']);
         return $article;
     }
 
     public function getArticles()
     {
-        $sql = 'SELECT id, title, content , author, createdAt FROM article ORDER BY id DESC LIMIT 0,3';
+        $sql = 'SELECT id, title, content , author, createdAt, picture FROM article ORDER BY id DESC LIMIT 0,3';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -33,7 +34,7 @@ class ArticleDAO extends DAO
 
     public function getArticlesAdmin()
     {
-        $sql = 'SELECT id, title, content , author, createdAt FROM article ORDER BY id';
+        $sql = 'SELECT id, title, content , author, createdAt, picture FROM article ORDER BY id';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -46,7 +47,7 @@ class ArticleDAO extends DAO
 
     public function getArticle($articleId)
     {
-        $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
+        $sql = 'SELECT id, title, content, author, createdAt, picture FROM article WHERE id = ?';
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
@@ -71,8 +72,8 @@ class ArticleDAO extends DAO
     public function addArticle(Parameter $post)
     {
         //Permet de récupérer les variables $title, $content et $author
-        $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
+        $sql = 'INSERT INTO article (title, content, author, picture, createdAt) VALUES (?, ?, ?,?, NOW())';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $post->get('picture')]);
     }
 
     public function deleteArticle( $articleId )

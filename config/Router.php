@@ -26,10 +26,11 @@ class Router
     public function run()
     {
         $route = $this->request->getGet()->get('route');
-      var_dump($_GET);
-      var_dump($this->request->getGet());
-      var_dump($_POST);
-        var_dump($_SESSION);
+     // var_dump($_GET);
+      //var_dump($this->request->getGet());
+      //var_dump($_POST);
+        //var_dump($_SESSION);
+
 
         try{
             if(isset($route))
@@ -68,6 +69,9 @@ class Router
                     $this->frontController->reportComment(filter_input(INPUT_GET, 'commentId', FILTER_SANITIZE_NUMBER_INT), filter_input(INPUT_GET, 'articleId'));
                 }
 
+                else if ($_GET['route']=== 'cancelReportComment') {
+                    $this->backController->cancelReportComment(filter_input(INPUT_GET, 'commentId', FILTER_SANITIZE_NUMBER_INT), filter_input(INPUT_GET, 'articleId'));
+                }
 
                 else if($route=='adminHome') {
                     if (isset($_SESSION['id'])) {
@@ -105,6 +109,16 @@ class Router
 
                 else if($_GET['route'] === 'updateArticle'){
                     $this->backController->updateArticle($this->request->getPost());
+                }
+
+                else if($_GET['route']==='quisuisje'){
+
+                    $this->frontController->quisuisje();
+                }
+
+                else if($_GET['route']==='leschapitres'){
+
+                    $this->frontController->leschapitres();
                 }
 
                 else{
