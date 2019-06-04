@@ -11,17 +11,22 @@
 <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-
+        <?php
+        foreach ($lastArticle as $lastArticle)
+        {
+        ?>
         <div class="carousel-item active">
             <img class="d-block w-100" src="../public/img/alaska04.jpg" alt="First slide">
             <div class="gradient"></div>
             <div class="carousel-caption">
                 <h1>Le dernier chapitre</h1>
-                <p class="lead">Le dernier roman de Jean Forteroche</p>
-                <a class="btn btn-primary" href="about.html"><span>Lire</span></a>
+                <p class="lead"><?= htmlspecialchars($lastArticle->getTitle());?></p>
+                <a class="btn btn-primary" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($lastArticle->getId());?>" class="btn btn-danger"><span>Lire</span></a>
             </div>
         </div>
-
+            <?php
+        }
+        ?>
         <div class="carousel-item">
             <img class="d-block w-100" src="../public/img/alaska03.jpg" alt="Second slide">
             <div class="gradient"></div>
@@ -61,7 +66,7 @@
 <br>
 <div class="container">
 
-    <h2>Découvrez les 3 derniers chapitres :</h2>
+    <h1>Découvrez les 3 derniers chapitres :</h1>
 </div>
 
 <?php

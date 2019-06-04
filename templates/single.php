@@ -34,13 +34,16 @@
 
             <div class="post">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h2>Vos commentaires</h2>
-                    </div>
+
+
+
                     <?php
                     foreach ($comments as $comment)
                     {
+
                     ?>
+
+
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
@@ -50,9 +53,27 @@
                             <p><strong><span>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></span>
                                     <?= htmlspecialchars($comment->getPseudo());?></strong>
                                 <?= htmlspecialchars($comment->getContent());?></p>
-                            <a class="btn btn-danger" href="../public/index.php?route=reportComment&articleId=<?= ($article->getId());?>&commentId=<?= ($comment->getId());?>"> Signaler</a>
+
+                            <?php
+                            if ($comment->getReported())
+                            {?>
+                            <p>Ce commentaire a déjà été signalé</p>
+                            <?php
+
+                            }
+                            else {
+
+                                ?>
+                                <a class="btn btn-danger" href="../public/index.php?route=reportComment&articleId=<?= ($article->getId());?>&commentId=<?= ($comment->getId());?>"> Signaler</a>
+
+                                <?php
+
+                            }
+                            ?>
+
                         </div>
                     </div>
+
                     <?php
                     }
                     ?>

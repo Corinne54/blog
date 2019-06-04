@@ -26,10 +26,7 @@ class Router
     public function run()
     {
         $route = $this->request->getGet()->get('route');
-     // var_dump($_GET);
-      //var_dump($this->request->getGet());
-      //var_dump($_POST);
-        //var_dump($_SESSION);
+
 
 
         try{
@@ -88,6 +85,11 @@ class Router
                 }
 
 
+                else if ($route==="updatePassword") {
+
+                    $this->backController->updatePassword($this->request->getPost());
+                }
+
                 elseif($route == 'logIn'){
                     $this->frontController->logIn($this->request->getPost());
                 }
@@ -120,6 +122,7 @@ class Router
 
                     $this->frontController->leschapitres();
                 }
+
 
                 else{
                     $this->errorController->errorNotFound();

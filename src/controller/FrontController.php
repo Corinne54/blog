@@ -12,8 +12,10 @@ class FrontController extends Controller
     {
         $articles = $this->articleDAO->getArticles();
         $articlesList = $this->articleDAO->getArticlesList();
+        $lastArticle= $this->articleDAO->getLastArticle();
+
         return $this->view->render('home', [
-            'articles' => $articles, 'articlesList' => $articlesList
+            'articles' => $articles, 'articlesList' => $articlesList, 'lastArticle'=>$lastArticle
         ]);
     }
 
@@ -24,12 +26,12 @@ class FrontController extends Controller
 
     public function leschapitres()
     {
-        $articles = $this->articleDAO->getArticles();
-        $articlesList = $this->articleDAO->getArticlesList();
-        return $this->view->render('leschapitres', ['articles' => $articles,'articlesList'=> $articlesList]
+        $articles = $this->articleDAO->getArticlesAdmin();
+        return $this->view->render('leschapitres', ['articles' => $articles]
 
         );
     }
+
 
     public function article($articleId)
     {

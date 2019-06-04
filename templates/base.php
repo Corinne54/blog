@@ -27,6 +27,7 @@
 require '../templates/header.php';
 ?>
 <div id="content">
+
     <?= $content ?>
 </div>
 

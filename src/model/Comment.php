@@ -91,11 +91,11 @@ class Comment
     }
 
 
-    public function getIsReported() {
+    public function getReported() {
         return $this->is_reported;
     }
 
-    public function setIsReported($is_reported) {
+    public function setReported($is_reported) {
         $this->is_reported = $is_reported;
     }
 

@@ -17,6 +17,19 @@ class UserDAO extends DAO
 
     }
 
+    public function updatePassword(Parameter $post)
+    {
+        $pass_hache = password_hash($post->get('password'), PASSWORD_DEFAULT);
+
+        $sql = "UPDATE user SET password= :password WHERE id =:id";
+
+        $this->createQuery($sql, [ $pass_hache]);
+
+    }
+
+
+
+
     public function logIn(Parameter $post)
     {
 

@@ -10,20 +10,20 @@
 
 
 <div align="center" >
-    <form method="post" action="../public/index.php?route=logIn">
-    <div align="center" >
-        <h2> Pour vous connecter, <br>merci de renseigner votre pseudo et votre mot de passe :</h2>
+    <form method="post" action="../public/index.php?route=updatePassword">
+
+        <h2> Choisissez votre nouveau mot de passe :</h2>
         <br>
-        <div >
+        <div>
             <label for="pseudo">pseudo(*)</label>
             <br>
-            <input type="text" class="form-control" id="pseudo" name="pseudo" autofocus required>
-        </div>
-        <div class="field">
+            <input type="text" class="form-control" id="pseudo" name="pseudo" value="<?= $_SESSION['pseudo']; ?>" >
+
+
             <label for="password">mot de passe(*)</label>
             <br>
-            <input type="password"class="form-control"  id="password" name="password" required>
-        </div>
+            <input type="password" class="form-control"  id="password" name="password" ">
+
 
     </div>
     <br>
@@ -31,6 +31,6 @@
         <button type="submit" value="submit" id="submit" name="submit" class="btn btn-primary px-4" />VALIDER
     </div>
 </form>
-</div>
+
     </div>
     </div>

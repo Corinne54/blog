@@ -1,6 +1,7 @@
 <div class="support">
     <div class="container">
         <div class="col-sm-12">
+
 <form method="post" action="../public/index.php?route=register">
     <div >
         <h2> Pour inscrire un nouvel administrateur, merci de choisir un pseudo et un mot de passe et de renseigner un e-mail :</h2>

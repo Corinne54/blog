@@ -32,6 +32,21 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
+
+    public function getLastArticle()
+    {
+        $sql = 'SELECT id, title, content , author, createdAt, picture FROM article ORDER BY id DESC LIMIT 0,1';
+        $result = $this->createQuery($sql);
+        $articles = [];
+        foreach ($result as $row){
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $articles;
+    }
+
+
     public function getArticlesAdmin()
     {
         $sql = 'SELECT id, title, content , author, createdAt, picture FROM article ORDER BY id';
@@ -55,10 +70,10 @@ class ArticleDAO extends DAO
     }
 
 
-    // Récupère la liste des titres des articles
+
     public function getArticlesList()
     {
-        $sql = "SELECT id, title FROM article";
+        $sql = "SELECT id, title, content FROM article";
         $articlesList = $this->createQuery($sql);
 
         return $articlesList;
@@ -67,13 +82,11 @@ class ArticleDAO extends DAO
 
 
 
-
-
-    public function addArticle(Parameter $post)
+    public function addArticle(Parameter $post, $imageName)
     {
-        //Permet de récupérer les variables $title, $content et $author
+
         $sql = 'INSERT INTO article (title, content, author, picture, createdAt) VALUES (?, ?, ?,?, NOW())';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $post->get('picture')]);
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $imageName]);
     }
 
     public function deleteArticle( $articleId )
