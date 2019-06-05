@@ -17,7 +17,7 @@
                     <h3><?= htmlspecialchars($article->getTitle());?></h3>
 
                    <p>
-                       <?= htmlspecialchars($article->getContent());?>
+                       <?= ($article->getContent());?>
 
 
 

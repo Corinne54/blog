@@ -1,3 +1,12 @@
+<head>
+
+    <script type="text/javascript" src="../public/tinymce/js/tinymce/tinymce.js"></script>
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode : "textareas"
+        });
+    </script></head>
+
 <div class="support">
     <div class="container">
         <div class="col-sm-12">

@@ -81,14 +81,11 @@ class Router
 
                 else if ($route==='register') {
 
+
                $this->frontController->register($this->request->getPost());
                 }
 
 
-                else if ($route==="updatePassword") {
-
-                    $this->backController->updatePassword($this->request->getPost());
-                }
 
                 elseif($route == 'logIn'){
                     $this->frontController->logIn($this->request->getPost());

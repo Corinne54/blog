@@ -30,7 +30,7 @@ foreach ($articles as $article)
     <div class="main-contant" >
 
         <h1><a href="../public/index.php?route=adminArticle&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h1>
-        <?= substr(htmlspecialchars($article->getContent()),0,300);?>
+        <?= substr(($article->getContent()),0,300);?>
 <br><br>
             <a href="../public/index.php?route=adminArticle&articleId=<?= htmlspecialchars($article->getId());?>"><i class="fas fa-book-reader"></i> Lire la suite </a>
             <br>

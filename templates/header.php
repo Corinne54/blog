@@ -1,7 +1,7 @@
 
 
 
-<?= $this->session->show('add_article'); ?>
+
 
 
 <!--Navbar -->

@@ -95,7 +95,7 @@ foreach ($articles as $article)
 
                         <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"> <?= htmlspecialchars($article->getTitle());?></a></h2>
 
-                        <h6><?= substr(htmlspecialchars($article->getContent()),0,250);?></h6>
+                        <h6><?= substr(($article->getContent()),0,250);?></h6>
 
                          <br>  <?= htmlspecialchars($article->getAuthor());?>
                         <br>

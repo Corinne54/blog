@@ -123,23 +123,6 @@ private function upload()
 
     }
 
-    public function updatePassword(Parameter $post)
-    {
-        if($post->get('submit'))
-
-        {
-            var_dump($post);
-            $this->userDAO->updatePassword($post);
-            $this->session->set('update_password', "Votre mot de passe a bien été modifié");
-           // header('Location: ../public/index.php?route=adminHome');
-        }
-        return $this->view->render('adminUpdatePassword', [
-            'post' => $post
-        ]);
-    }
-
-
-
 
 
     public function deleteComment($commentId)

@@ -15,7 +15,7 @@
 <br><div class="main-contant">
 
 
-    <h3> Commentaires</h3>
+
     <?php
     foreach ($comments as $comment)
     {
@@ -25,7 +25,7 @@
                 <div class="col-lg-12 col-md-12 col-12">
 
                     <br><strong><?= htmlspecialchars($comment->getPseudo());?></strong>
-        <br><?= htmlspecialchars($comment->getContent());?>
+        <br><?= ($comment->getContent());?>
        <br> Posté le <?= htmlspecialchars($comment->getCreatedAt());?>
 
        <br> <a href="../public/index.php?route=deleteComment&commentId=<?= htmlspecialchars($comment->getId());?>"><i class="fa fa-times"></i> Supprimer le commentaire</a>
